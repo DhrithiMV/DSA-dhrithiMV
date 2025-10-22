@@ -2,10 +2,13 @@
 # Topic: Math Essentials
 # Type: In-Session
 
-class Solution:
+class Solution:  
     def isPowerOfTwo(self, n: int) -> bool:
-        # Check if n is a power of two using bit manipulation
-        pass
+        class Solution:
+            if n <= 0:
+                return False
+            return (n & (n - 1)) == 0
+        
 
 # Demo
 if __name__ == '__main__':
