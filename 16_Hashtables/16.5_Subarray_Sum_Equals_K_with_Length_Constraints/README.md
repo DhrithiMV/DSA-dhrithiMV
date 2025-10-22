@@ -39,15 +39,27 @@ Output: 4
 Explanation: Subarrays [1, -1], [-1, 1], [1, -1], and [1, -1, 1, -1] meet the criteria. 
 
 ### Approach
-Describe your approach here...
+
+1. Compute prefix sums for the array to get sum up to each index efficiently.  
+2. Maintain a hashmap (prefix_map) that stores prefix sums within the valid window `[i - n, i - m]`.  
+3. For each index i:
+   - Add prefix_sum[i - m] into the hashmap (these are new valid subarray starts).
+   - Remove prefix_sum[i - n - 1] (outside max length window).
+   - The number of valid subarrays ending at index i is given by prefix_map[prefix_sum[i] - k].
+4. Sum all results to get the total count.
 
 ### Pseudocode
-```
-Write your pseudocode here...
-```
+
+prefix_sum = cumulative sum of nums  
+for i in range(len(prefix_sum)):
+ Add prefix_sum[i - m] to map if in range  
+ Remove prefix_sum[i - n - 1] if out of range  
+ If prefix_sum[i] - k in map → increment count by map value  
 
 ### Time Complexity
-- 
+
+O(n)
 
 ### Space Complexity
-- 
+
+O(n)
