@@ -2,9 +2,18 @@
 # Topic: Time & Space Complexity
 # Type: Home Challenge
 
-class Solution:
-    def leaderboard(self, scores: list[int]) -> None:
-        pass
+class Leaderboard:
+    def __init__(self):
+        self.scores = {}
+    def addScore(self, playerId, score):
+        if playerId not in self.scores:
+            self.scores[playerId] = 0
+        self.scores[playerId] += score
+    def top(self, K):
+        return sum(sorted(self.scores.values(), reverse=True)[:K])
+    def reset(self, playerId):
+        self.scores.pop(playerId, None)
+
 
 # Demo
 if __name__ == '__main__':
