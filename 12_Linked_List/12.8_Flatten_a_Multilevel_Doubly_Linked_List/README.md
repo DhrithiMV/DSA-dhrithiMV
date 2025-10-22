@@ -26,12 +26,20 @@ Example:
 Describe your approach here...
 
 ### Pseudocode
-```
-Write your pseudocode here...
-```
+
+Initialize dummy node before head  
+While true:  
+    Set kth = prev  
+    Move kth k steps  
+    If kth is None: break  
+    Reverse group from prev.next to kth  
+    Update prev for next group  
+Return dummy.next
 
 ### Time Complexity
-- 
+
+O(n)
 
 ### Space Complexity
-- 
+
+O(1)
