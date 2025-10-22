@@ -58,14 +58,22 @@ Explanation: Starts empty, insert 8 front, delete front removes it, empty again.
 
 ### Approach
 Describe your approach here...
-
 ### Pseudocode
-```
-Write your pseudocode here...
-```
+
+Initialize result list  
+Define helper _inorder(node, res):  
+ If node is None, return  
+ _recurse left_  
+ Append node value to res  
+ _recurse right_  
+Call _inorder(root, res)_  
+Return res
 
 ### Time Complexity
-- 
+
+O(n)
 
 ### Space Complexity
-- 
+
+O(n) (recursive stack)
+
