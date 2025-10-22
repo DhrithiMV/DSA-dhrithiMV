@@ -42,12 +42,25 @@ Explanation: Empty array has no duplicates.
 Describe your approach here...
 
 ### Pseudocode
-```
-Write your pseudocode here...
-```
+
+Initialize an empty dictionary index_map  
+For i, num in enumerate(nums):  
+ If num exists in index_map and i - index_map[num] <= k:  
+  Return True  
+ Else, update index_map[num] = i  
+Return False
+
+### Example
+
+Input: nums = [1, 2, 3, 1], k = 3  
+Output: True  
+
+Because nums[0] == nums[3] and |0 - 3| = 3 <= k
 
 ### Time Complexity
-- 
+
+O(n)
 
 ### Space Complexity
-- 
+
+O(n)
