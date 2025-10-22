@@ -24,12 +24,20 @@ s consists of ASCII characters.
 Describe your approach here...
 
 ### Pseudocode
-```
-Write your pseudocode here...
-```
+
+Initialize chars as empty set, left = 0, max_len = 0  
+For right from 0 to n-1:  
+    While s[right] in chars:  
+        Remove s[left] from chars  
+        Increment left  
+    Add s[right] to chars  
+    Update max_len as max(max_len, right-left+1)  
+Return max_len
 
 ### Time Complexity
-- 
+
+O(n)
 
 ### Space Complexity
-- 
+
+O(n)
