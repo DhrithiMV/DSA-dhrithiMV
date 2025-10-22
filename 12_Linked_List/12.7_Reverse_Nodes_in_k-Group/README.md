@@ -25,12 +25,20 @@ Example 1:
 Describe your approach here...
 
 ### Pseudocode
-```
-Write your pseudocode here...
-```
+
+Initialize a min-heap  
+Push first node of each list to heap  
+While heap is not empty:  
+    Pop smallest node  
+    Add node to merged list  
+    If node.next exists:  
+        Push node.next to heap  
+Return merged list
 
 ### Time Complexity
-- 
+
+O(N log k), where N = total number of nodes, k = number of lists
 
 ### Space Complexity
-- 
+
+O(k)
