@@ -40,15 +40,27 @@ Output: [5]
 Explanation: Single element. 
 
 ### Approach
-Describe your approach here...
+
+Use a hash map (Counter) to count frequencies of all elements.  
+To handle tie cases (same frequency), track the first occurrence index of each element.  
+Sort by:
+1. Frequency in descending order
+2. First occurrence index in ascending order for stability.
+
+Return top k elements after sorting.
 
 ### Pseudocode
-```
-Write your pseudocode here...
-```
+
+Initialize Counter for frequencies and a dict for first occurrences  
+For each number:
+ If number not in first_occurrence, record its index  
+Sort all unique numbers by (-frequency, first_occurrence)  
+Return first k elements  
 
 ### Time Complexity
-- 
+
+O(n log n) — due to sorting of unique elements  
 
 ### Space Complexity
-- 
+
+O(n) — for frequency and index maps  
