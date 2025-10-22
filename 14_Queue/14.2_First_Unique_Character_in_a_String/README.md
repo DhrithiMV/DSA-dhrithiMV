@@ -35,12 +35,20 @@ s consists of lowercase English letters.
 Describe your approach here...
 
 ### Pseudocode
-```
-Write your pseudocode here...
-```
+
+Create empty count dictionary  
+For each character in s:  
+ Increment count of character  
+For each index and character in s:  
+ If count of character is 1:  
+  Return index  
+Return -1
 
 ### Time Complexity
-- 
+
+O(n)
 
 ### Space Complexity
-- 
+
+O(1) (since alphabet size is limited)
+
