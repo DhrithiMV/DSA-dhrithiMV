@@ -32,12 +32,27 @@ Explanation: All lists merged in ascending order.
 Describe your approach here...
 
 ### Pseudocode
-```
-Write your pseudocode here...
-```
+
+Initialize double-linked list with left (LRU) and right (MRU) sentinels  
+For get(key):  
+    If key in cache:  
+        Remove node, insert it at MRU position, return value  
+    Else: return -1  
+For put(key, value):  
+    If key in cache:  
+        Remove node  
+    Insert new node at MRU  
+    If size exceeds capacity:  
+        Remove node at LRU and delete from cache
 
 ### Time Complexity
-- 
+
+O(1) per get/put operation
+
+### Space Complexity
+
+O(capacity)
+
 
 ### Space Complexity
 - 
