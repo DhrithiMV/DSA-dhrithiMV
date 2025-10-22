@@ -100,12 +100,18 @@ This cycle is detected and removed by breaking the pointer, making list linear.
 Describe your approach here...
 
 ### Pseudocode
-```
-Write your pseudocode here...
-```
+
+Use slow and fast pointers to detect cycle  
+If cycle not found: return  
+Move slow to head, keep fast at meeting point  
+Move both one step at a time until they meet (start of loop)  
+Move fast forward until fast.next == slow  
+Set fast.next to None to remove loop
 
 ### Time Complexity
-- 
+
+O(n)
 
 ### Space Complexity
-- 
+
+O(1)
