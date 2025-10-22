@@ -84,12 +84,20 @@ Up to 10^4 calls.
 Describe your approach here...
 
 ### Pseudocode
-```
-Write your pseudocode here...
-```
+
+Initialize deque dq and result list  
+For i from 0 to n-1:  
+    If dq[0] < i - k + 1, remove dq[0]  
+    While dq is not empty and nums[dq[-1]] < nums[i], pop dq[-1]  
+    Append i to dq  
+    If i >= k-1, append nums[dq[0]] to result  
+Return result
 
 ### Time Complexity
-- 
+
+O(n)
 
 ### Space Complexity
-- 
+
+O(k)
+
