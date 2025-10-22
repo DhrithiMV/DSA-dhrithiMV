@@ -2,16 +2,37 @@
 # Topic: Stack
 # Type: Home Challenge
 
-from typing import List
+class MinStack:
+    def __init__(self):
+        self.stack = []
+        self.min_stack = []
 
-class Solution:
-    def largestRectangleArea(self, heights: List[int]) -> int:
-        # Implement monotonic stack based histogram area calculation
-        pass
+    def push(self, x):
+        self.stack.append(x)
+        if not self.min_stack or x <= self.min_stack[-1]:
+            self.min_stack.append(x)
 
-# Demo
+    def pop(self):
+        x = self.stack.pop()
+        if x == self.min_stack[-1]:
+            self.min_stack.pop()
+        return x
+
+    def top(self):
+        return self.stack[-1]
+
+    def getMin(self):
+        return self.min_stack[-1]
+
 if __name__ == "__main__":
-    sol = Solution()
-    print(sol.largestRectangleArea([2,1,5,6,2,3]))  
-    print(sol.largestRectangleArea([2,4]))          
+    ms = MinStack()
+    ms.push(-2)
+    ms.push(0)
+    ms.push(-3)
+    print(ms.getMin())  # -3
+    ms.pop()
+    print(ms.top())     # 0
+    print(ms.getMin())  # -2
+
+   
 
