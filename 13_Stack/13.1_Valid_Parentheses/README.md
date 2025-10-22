@@ -47,12 +47,22 @@ Examples
 Describe your approach here...
 
 ### Pseudocode
-```
-Write your pseudocode here...
-```
+
+push(x):
+    Append x to queue
+pop():
+    Rotate queue until last element, then pop and return it
+top():
+    Rotate until last element, but return and keep it
+empty():
+    Return if queue is empty
 
 ### Time Complexity
-- 
+
+push: O(1)  
+pop/top: O(n)  
 
 ### Space Complexity
-- 
+
+O(n)
+
