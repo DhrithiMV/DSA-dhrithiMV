@@ -46,12 +46,23 @@ Explanation: Multiple pairs of 1 and 5 sum to 6, distinct indices for each pair.
 Describe your approach here...
 
 ### Pseudocode
-```
-Write your pseudocode here...
-```
+
+Initialize an empty dictionary (hashmap)  
+For each index i and element num in nums:
+ Compute complement = target - num  
+ If complement in hashmap, return indices [hashmap[complement], i]  
+ Else, store num in hashmap with its index  
+Return empty if not found
+
+### Example
+
+Input: nums = [2,7,11,15], target = 9  
+Output: [0,1]
 
 ### Time Complexity
-- 
+
+O(n)
 
 ### Space Complexity
-- 
+
+O(n)
