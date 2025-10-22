@@ -1,53 +1,34 @@
-# Kth Largest Element Using Quick Sort
-**Topic:** Quick Sort
-
-**Type:** Home Challenge
-
-
-Problem :
-
-
- Find the kth largest element in an unsorted array using Quick Select. 
-
- 
-
-Example 1: 
-
-Input: 
- nums = [3,2,1,5,6,4], k = 2 
-
-Output: 
- 5 
-
- 
-
-Example 2: 
-
-Input: 
- nums = [7,10,4,3,20,15], k = 3 
-
-Output: 
- 10 
-
- 
-
-Constraints: 
-
-1≤k≤nums.length≤1051 \leq k \leq \text{nums.length} \leq 10^51≤k≤nums.length≤105 
-
-−109≤nums[i]≤109-10^9 \leq \text{nums[i]} \leq 10^9−109≤nums[i]≤109
-
-
 ### Approach
-Describe your approach here...
+Use Quick Select, a partition-based selection algorithm. Partition the array recursively; if kth largest is at the pivot, return. Otherwise, repeat search on left or right partition based on k.
 
 ### Pseudocode
-```
-Write your pseudocode here...
-```
+FUNCTION findKthLargest(nums, k):
+    k = length(nums) - k
+    RETURN quickSelect(nums, 0, length(nums)-1, k)
+
+FUNCTION quickSelect(arr, low, high, k):
+    IF low == high:
+        RETURN arr[low]
+    pi = partition(arr, low, high)
+    IF pi == k:
+        RETURN arr[pi]
+    ELSE IF pi > k:
+        RETURN quickSelect(arr, low, pi - 1, k)
+    ELSE:
+        RETURN quickSelect(arr, pi + 1, high, k)
+
+FUNCTION partition(arr, low, high):
+    pivot = arr[high]
+    i = low
+    FOR j FROM low TO high-1:
+        IF arr[j] <= pivot:
+            SWAP arr[i], arr[j]
+            i += 1
+    SWAP arr[i], arr[high]
+    RETURN i
 
 ### Time Complexity
-- 
+O(n^2) worst-case, O(n) average
 
 ### Space Complexity
-- 
+O(1)
