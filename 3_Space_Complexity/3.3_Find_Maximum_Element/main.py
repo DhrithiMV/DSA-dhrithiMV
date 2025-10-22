@@ -1,11 +1,12 @@
-# Find Maximum Element
-# Topic: Space Complexity
-# Type: In-Session
+from typing import List
 
-class Solution:
-    def maxElement(self, arr: list[int]) -> int:
-        # Return the maximum element
-        pass
+def reverse_array_inplace(arr: List[int]) -> List[int]:
+    left, right = 0, len(arr) - 1
+    while left < right:
+        arr[left], arr[right] = arr[right], arr[left]
+        left += 1
+        right -= 1
+    return arr
 
 # Demo
 if __name__ == '__main__':
