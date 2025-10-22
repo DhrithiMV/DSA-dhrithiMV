@@ -21,12 +21,26 @@ Constraints:
 Describe your approach here...
 
 ### Pseudocode
-```
-Write your pseudocode here...
-```
+
+Define atMostK(s, k):
+    Initialize left = 0, count = 0, empty freq dictionary
+    For right from 0 to n-1:
+        Increment freq[s[right]] by 1
+        While number of distinct keys in freq > k:
+            Decrement freq[s[left]] by 1
+            If freq[s[left]] == 0:
+                Remove s[left] from freq
+            Increment left by 1
+        Increment count by right - left + 1
+    Return count
+
+Return atMostK(s, k) - atMostK(s, k-1)
 
 ### Time Complexity
-- 
+
+O(n)
 
 ### Space Complexity
-- 
+
+O(k)
+
