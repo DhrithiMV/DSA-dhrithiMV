@@ -34,12 +34,29 @@ Input: nums=[84,-37,32,40,95], k=167
 Describe your approach here...
 
 ### Pseudocode
-```
-Write your pseudocode here...
-```
+
+Initialize two deques — one for min, one for max  
+For i in range(k):
+ Maintain decreasing order in max_dq  
+ Maintain increasing order in min_dq  
+Add first window result = min + max  
+For each subsequent element:
+ Remove indices out of window (i - k)  
+ Pop smaller elements for max_dq update  
+ Pop larger elements for min_dq update  
+ Add current index  
+ Add current window’s min + max to total_sum  
+Return total_sum
+
+### Example
+
+Input: [2, 5, -1, 7, -3, -1, -2], k = 4  
+Output: 18
 
 ### Time Complexity
-- 
+
+O(n)
 
 ### Space Complexity
-- 
+
+O(k)
