@@ -33,12 +33,21 @@ Explanation: 4 + 4 = 8.
 Describe your approach here...
 
 ### Pseudocode
-```
-Write your pseudocode here...
-```
+
+Set left to 0, right to n-1  
+While left < right:  
+    If nums[left] + nums[right] == target:  
+        Return [left+1, right+1]  
+    If sum < target:  
+        Increment left  
+    Else:  
+        Decrement right
 
 ### Time Complexity
-- 
+
+O(n)
 
 ### Space Complexity
-- 
+
+O(1)
+
