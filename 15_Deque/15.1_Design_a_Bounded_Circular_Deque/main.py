@@ -4,38 +4,65 @@
 
 class MyCircularDeque:
     def __init__(self, k: int):
-        pass
+        self.k = k
+        self.q = [0] * k
+        self.size = 0
+        self.front = 0
+        self.rear = 0
 
     def insertFront(self, value: int) -> bool:
-        pass
+        if self.isFull():
+            return False
+        self.front = (self.front - 1 + self.k) % self.k
+        self.q[self.front] = value
+        self.size += 1
+        return True
 
     def insertLast(self, value: int) -> bool:
-        pass
+        if self.isFull():
+            return False
+        self.q[self.rear] = value
+        self.rear = (self.rear + 1) % self.k
+        self.size += 1
+        return True
 
     def deleteFront(self) -> bool:
-        pass
+        if self.isEmpty():
+            return False
+        self.front = (self.front + 1) % self.k
+        self.size -= 1
+        return True
 
     def deleteLast(self) -> bool:
-        pass
+        if self.isEmpty():
+            return False
+        self.rear = (self.rear - 1 + self.k) % self.k
+        self.size -= 1
+        return True
 
     def getFront(self) -> int:
-        pass
+        if self.isEmpty():
+            return -1
+        return self.q[self.front]
 
     def getRear(self) -> int:
-        pass
+        if self.isEmpty():
+            return -1
+        return self.q[(self.rear - 1 + self.k) % self.k]
 
     def isEmpty(self) -> bool:
-        pass
+        return self.size == 0
 
     def isFull(self) -> bool:
-        pass
+        return self.size == self.k
+
 
 # Demo
 if __name__ == "__main__":
     deque = MyCircularDeque(3)
-    print(deque.insertLast(5))   
-    print(deque.insertFront(3))  
-    print(deque.getRear())      
-    print(deque.deleteLast())    
-    print(deque.getFront())      
-    print(deque.isEmpty())    
+    print(deque.insertLast(5))    # True
+    print(deque.insertFront(3))   # True
+    print(deque.getRear())        # 5
+    print(deque.deleteLast())     # True
+    print(deque.getFront())       # 3
+    print(deque.isEmpty())
