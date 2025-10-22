@@ -67,12 +67,20 @@ Target O(1) auxiliary space complexity
 Describe your approach here...
 
 ### Pseudocode
-```
-Write your pseudocode here...
-```
+
+Initialize dummy node before head  
+Set fast and slow to dummy  
+Move fast forward n steps  
+While fast.next exists:  
+ Move fast and slow forward by one  
+Set slow.next = slow.next.next  
+Return dummy.next
 
 ### Time Complexity
-- 
+
+O(n)
 
 ### Space Complexity
-- 
+
+O(1)
+
