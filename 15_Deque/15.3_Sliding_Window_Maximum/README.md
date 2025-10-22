@@ -29,12 +29,20 @@ Input: nums=[2][1], k=2
 Describe your approach here...
 
 ### Pseudocode
-```
-Write your pseudocode here...
-```
+
+Initialize deque dq and result array res  
+For each index i in nums:  
+    If dq[0] is out of current window, pop from front  
+    While nums[dq[-1]] < nums[i], pop from dq to maintain decreasing order  
+    Append i to dq  
+    If i >= k-1, append nums[dq[0]] to result  
+Return result
 
 ### Time Complexity
-- 
+
+O(n)
 
 ### Space Complexity
-- 
+
+O(k)
+
