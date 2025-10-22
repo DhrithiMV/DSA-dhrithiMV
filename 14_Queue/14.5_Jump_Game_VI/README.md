@@ -39,12 +39,26 @@ Constraints:
 Describe your approach here...
 
 ### Pseudocode
-```
-Write your pseudocode here...
-```
+
+Initialize max_dq, min_dq as empty deques  
+left = 0  
+For right from 0 to n-1:  
+ While max_dq not empty and nums[right] > max_dq[-1], pop max_dq  
+ Append nums[right] to max_dq  
+ While min_dq not empty and nums[right] < min_dq[-1], pop min_dq  
+ Append nums[right] to min_dq  
+ While max_dq[0] - min_dq[0] > limit:  
+  If nums[left] == max_dq[0], pop max_dq  
+  If nums[left] == min_dq[0], pop min_dq  
+  Increment left  
+ Update res = max(res, right-left+1)  
+Return res
 
 ### Time Complexity
-- 
+
+O(n)
 
 ### Space Complexity
-- 
+
+O(n)
+
