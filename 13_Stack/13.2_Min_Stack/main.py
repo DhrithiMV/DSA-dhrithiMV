@@ -1,31 +1,24 @@
-# Min Stack
-# Topic: Stack
-# Type: In-Session
-
-class MinStack:
+class MyQueue:
     def __init__(self):
-        # Initialize your stack data structures
-        pass
+        self.in_stack = []
+        self.out_stack = []
+    def push(self, x):
+        self.in_stack.append(x)
+    def pop(self):
+        self.peek()
+        return self.out_stack.pop()
+    def peek(self):
+        if not self.out_stack:
+            while self.in_stack:
+                self.out_stack.append(self.in_stack.pop())
+        return self.out_stack[-1]
+    def empty(self):
+        return not self.in_stack and not self.out_stack
 
-    def push(self, val: int) -> None:
-        pass
-
-    def pop(self) -> None:
-        pass
-
-    def top(self) -> int:
-        pass
-
-    def getMin(self) -> int:
-        pass
-
-# Demo
 if __name__ == "__main__":
-    minStack = MinStack()
-    minStack.push(-2)
-    minStack.push(0)
-    minStack.push(-3)
-    print(minStack.getMin())  
-    minStack.pop()
-    print(minStack.top())     
-    print(minStack.getMin())  
+    q = MyQueue()
+    q.push(1)
+    q.push(2)
+    print(q.peek())  # 1
+    print(q.pop())   # 1
+    print(q.empty()) # False
