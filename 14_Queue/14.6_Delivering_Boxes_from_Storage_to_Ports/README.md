@@ -69,13 +69,27 @@ Boxes must be delivered in order.
 ### Approach
 Describe your approach here...
 
+### Problem
+
+Deliver boxes from storage to various ports while respecting ship constraints:
+- maxBoxes: maximum number of boxes per trip
+- maxWeight: maximum total weight per trip
+Find the minimum number of trips required.
+
 ### Pseudocode
-```
-Write your pseudocode here...
-```
+
+Precompute weight prefix sum ws and port-change prefix sum cs  
+Initialize deque dq with [0] and dp array  
+For i = 1 to n:
+ Remove indices from dq violating box or weight constraints  
+ dp[i] = cs[i-1] - cs[dq[0]] + dp[dq[0]] + 2  
+ Maintain deque monotonicity by removing worse previous states  
+Return dp[n]
 
 ### Time Complexity
-- 
+
+O(n)
 
 ### Space Complexity
-- 
+
+O(n)
