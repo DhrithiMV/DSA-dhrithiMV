@@ -29,12 +29,28 @@ Output: 8
 Describe your approach here...
 
 ### Pseudocode
-```
-Write your pseudocode here...
-```
+function fibonacci(n):
+  // Handle the base cases for n=0 and n=1.
+  if n is less than or equal to 1:
+    return n
+
+  // Initialize the first two Fibonacci numbers.
+  a = 0
+  b = 1
+
+  // Iterate from 2 up to n.
+  for i from 2 to n:
+    // Calculate the next Fibonacci number by summing the previous two.
+    // Update the values of a and b for the next iteration.
+    temp = a + b
+    a = b
+    b = temp
+    
+  // Return the nth Fibonacci number.
+  return b
 
 ### Time Complexity
-- 
+O(n)
 
 ### Space Complexity
-- 
+O(1) 
