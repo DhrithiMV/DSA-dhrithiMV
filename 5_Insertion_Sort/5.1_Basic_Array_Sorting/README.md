@@ -25,12 +25,30 @@ Output: [1,2,3,5] Why It Fits: Pure insertion sort on arrays, ideal for practici
 Describe your approach here...
 
 ### Pseudocode
-```
-Write your pseudocode here...
-```
+function sortArray(nums):
+  // Start iterating from the second element (index 1) to the end of the array.
+  for i from 1 to length(nums) - 1:
+    // Store the current element in a variable 'key'.
+    key = nums[i]
+    // Initialize a pointer 'j' to the element just before the 'key'.
+    j = i - 1
+    
+    // While 'j' is a valid index and the element at 'j' is
+    // greater than the 'key', shift the element at 'j' one
+    // position to the right.
+    while j >= 0 and key < nums[j]:
+      nums[j + 1] = nums[j]
+      j = j - 1
+    
+    // Insert the 'key' into its correct position.
+    nums[j + 1] = key
+    
+  // Return the sorted array.
+  return nums
+
 
 ### Time Complexity
-- 
+O(n^2)
 
 ### Space Complexity
-- 
+O(1)
