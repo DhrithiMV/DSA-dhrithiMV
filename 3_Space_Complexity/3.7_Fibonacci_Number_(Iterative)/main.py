@@ -1,11 +1,11 @@
-# Fibonacci Number (Iterative)
-# Topic: Space Complexity
-# Type: Home Challenge
-
-class Solution:
-    def fibonacci(self, n: int) -> int:
-        # Iterative approach to save space
-        pass
+def fibonacci(n: int) -> int:
+    if n <= 1:
+        return n
+    
+    a, b = 0, 1
+    for _ in range(2, n + 1):
+        a, b = b, a + b
+    return b
 
 # Demo
 if __name__ == '__main__':
