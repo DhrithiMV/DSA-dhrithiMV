@@ -39,12 +39,23 @@ Examples:
 Describe your approach here...
 
 ### Pseudocode
-```
-Write your pseudocode here...
-```
+
+push(x):
+    Add x to in_stack
+pop():
+    Call peek() to prepare out_stack, then pop from out_stack
+peek():
+    If out_stack is empty, move all from in_stack to out_stack (reverse order)
+    Return last element in out_stack
+empty():
+    Return true if both in_stack and out_stack are empty
 
 ### Time Complexity
-- 
+
+push: O(1)  
+pop/peek: Amortized O(1)
 
 ### Space Complexity
-- 
+
+O(n)
+
