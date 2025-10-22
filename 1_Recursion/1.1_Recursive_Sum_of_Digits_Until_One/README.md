@@ -42,12 +42,24 @@ Constraints:
 Describe your approach here...
 
 ### Pseudocode
-```
-Write your pseudocode here...
-```
+function recursiveDigitSum(n):
+  // Base case: If the number has a single digit, return it
+  if n < 10:
+    return n
+
+  // Recursive step: Otherwise, calculate the sum of the digits
+  sum_of_digits = 0
+  temp_n = n
+  while temp_n > 0:
+    sum_of_digits += temp_n % 10
+    temp_n //= 10
+
+  // Recursively call the function with the new sum
+  return recursiveDigitSum(sum_of_digits)
+
 
 ### Time Complexity
-- 
+(O(log n)) 
 
 ### Space Complexity
-- 
+(O(log n)) 
