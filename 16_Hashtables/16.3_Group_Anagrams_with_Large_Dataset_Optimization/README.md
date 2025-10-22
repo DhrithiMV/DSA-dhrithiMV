@@ -43,12 +43,26 @@ Output: Groups sorted internally; efficiency critical.
 Describe your approach here...
 
 ### Pseudocode
-```
-Write your pseudocode here...
-```
+
+Initialize prefix_sum = 0, count = 0  
+Initialize hash map prefix_map with {0: 1}  
+For each num in nums:  
+ Add num to prefix_sum  
+ If (prefix_sum - k) in prefix_map, increment count by prefix_map[prefix_sum - k]  
+ Add prefix_sum to prefix_map  
+Return count
+
+### Example
+
+nums = [1, 1, 1], k = 2  
+prefix_sums: [1, 2, 3]  
+Valid subarrays: [1,1] (twice) → count = 2  
 
 ### Time Complexity
-- 
+
+O(n)
 
 ### Space Complexity
-- 
+
+O(n)
+
