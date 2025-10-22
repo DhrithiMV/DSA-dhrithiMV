@@ -67,12 +67,26 @@ Rank List: [100, 80, 60, 40]
 Describe your approach here...
 
 ### Pseudocode
-```
-Write your pseudocode here...
-```
+CLASS Leaderboard:
+    FUNCTION __init__():
+        scores = {}
+
+    FUNCTION addScore(playerId, score):
+        IF playerId NOT IN scores:
+            scores[playerId] = 0
+        scores[playerId] += score
+
+    FUNCTION top(K):
+        top_scores = SORT(scores.values(), descending)
+        RETURN SUM(first K of top_scores)
+
+    FUNCTION reset(playerId):
+        scores.pop(playerId)
+
+
 
 ### Time Complexity
-- 
+O(1)
 
 ### Space Complexity
-- 
+O(n)
