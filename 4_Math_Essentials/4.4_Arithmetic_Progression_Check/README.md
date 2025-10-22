@@ -36,12 +36,30 @@ Constraints:
 Describe your approach here...
 
 ### Pseudocode
-```
-Write your pseudocode here...
-```
+function canMakeArithmeticProgression(arr):
+  // Sort the input array in place.
+  sort arr
+  
+  // Handle the edge case where the array has 2 or fewer elements.
+  // In this case, an arithmetic progression is always possible.
+  if length of arr <= 2:
+    return true
+    
+  // Calculate the common difference using the first two elements.
+  diff = arr[1] - arr[0]
+  
+  // Iterate through the rest of the array starting from the third element.
+  for i from 2 to length of arr - 1:
+    // Check if the difference between consecutive elements is equal to the initial common difference.
+    if arr[i] - arr[i - 1] is not equal to diff:
+      // If any consecutive difference is not the same, it's not an arithmetic progression.
+      return false
+      
+  // If the loop completes without finding any inconsistent differences, it is an arithmetic progression.
+  return true
+
 
 ### Time Complexity
-- 
-
+O(nlogn)
 ### Space Complexity
-- 
+O(n)
