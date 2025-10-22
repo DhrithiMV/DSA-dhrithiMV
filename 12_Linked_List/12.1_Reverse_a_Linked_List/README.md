@@ -57,12 +57,20 @@ Must reverse in-place with O(1) extra space for iterative approach
 Describe your approach here...
 
 ### Pseudocode
-```
-Write your pseudocode here...
-```
+
+Initialize prev = None, current = head  
+While current is not None:  
+    Set next_node = current.next  
+    Set current.next = prev  
+    Set prev = current  
+    Set current = next_node  
+Return prev
 
 ### Time Complexity
-- 
+
+O(n)
 
 ### Space Complexity
-- 
+
+O(1)
+
