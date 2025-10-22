@@ -38,12 +38,19 @@ Output: true
 Describe your approach here...
 
 ### Pseudocode
-```
-Write your pseudocode here...
-```
+function is_palindrome(s):
+  // Reverse the input string 's' to create a new string, 'reversed_s'
+  reversed_s = reverse(s)
+
+  // Compare the original string 's' with the reversed string 'reversed_s'
+  if s is equal to reversed_s:
+    return true
+  else:
+    return false
+
 
 ### Time Complexity
-- 
+O(n)
 
 ### Space Complexity
-- 
+O(n)
