@@ -40,12 +40,25 @@ Explanation: -10 + -2 = -12 (diff 3), -10 + 1 = -9 (diff 0), so [0,3] is correct
 Describe your approach here...
 
 ### Pseudocode
-```
-Write your pseudocode here...
-```
+### Pseudocode
+
+Set left = 0, right = n-1, closest = infinity, ans = [left, right]  
+While left < right:  
+    curr_sum = nums[left] + nums[right]  
+    If abs(curr_sum - target) < abs(closest - target):  
+        closest = curr_sum  
+        ans = [left, right]  
+    If curr_sum < target:  
+        Increment left  
+    Else:  
+        Decrement right  
+Return ans
 
 ### Time Complexity
-- 
+
+O(n)
 
 ### Space Complexity
-- 
+
+O(1)
+
