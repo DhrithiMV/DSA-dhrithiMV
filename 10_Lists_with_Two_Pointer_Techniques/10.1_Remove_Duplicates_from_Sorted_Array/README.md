@@ -32,12 +32,17 @@ Explanation: Unique elements are [0,1,2,3,4].
 Describe your approach here...
 
 ### Pseudocode
-```
-Write your pseudocode here...
-```
+### Pseudocode
+
+Set i to 0  
+For j from 1 to n-1:
+  If nums[j] != nums[i], increment i, set nums[i] = nums[j]  
+Return i+1
 
 ### Time Complexity
-- 
+
+O(n)
 
 ### Space Complexity
-- 
+
+O(1)
