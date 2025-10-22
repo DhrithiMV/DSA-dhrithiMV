@@ -1,6 +1,10 @@
-# Sum of Array Elements
-# Topic: Space Complexity
-# Type: In-Session
+from typing import List
+
+def sum_array_elements(arr: List[int]) -> int:
+    total = 0
+    for element in arr:
+        total += element
+    return total
 
 class Solution:
     def sumArray(self, arr: list[int]) -> int:
