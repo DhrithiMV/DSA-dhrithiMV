@@ -4,19 +4,29 @@
 
 from collections import deque
 
-class RecentCounter:
-    def __init__(self):
-        # Initialize queue
-        pass
+def maxSlidingWindow(nums, k):
+    n = len(nums)
+    if n * k == 0:
+        return []
+    if k == 1:
+        return nums
 
-    def ping(self, t: int) -> int:
-        # Add t, remove old requests, return count
-        pass
+    dq = deque()
+    res = []
 
-# Demo
+    for i in range(n):
+        # Remove indexes that are out of window
+        if dq and dq[0] == i - k:
+            dq.popleft()
+        # Remove from dq all elements less than current nums[i]
+        while dq and nums[dq[-1]] < nums[i]:
+            dq.pop()
+        dq.append(i)
+        if i >= k - 1:
+            res.append(nums[dq[0]])
+    return res
+
 if __name__ == "__main__":
-    rc = RecentCounter()
-    print(rc.ping(1))    
-    print(rc.ping(100))  
-    print(rc.ping(3001)) 
-    print(rc.ping(3002))
+    print(maxSlidingWindow([1,3,-1,-3,5,3,6,7], 3)) # [3,3,5,5,6,7]
+    print(maxSlidingWindow([1], 1))                 # [1]
+
