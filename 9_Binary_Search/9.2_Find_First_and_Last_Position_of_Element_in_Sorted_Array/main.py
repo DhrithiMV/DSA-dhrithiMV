@@ -1,14 +1,19 @@
-# Find First and Last Position of Element in Sorted Array
-# Topic: Binary Search
-# Type: In-Session
-
-
 class Solution:
     def searchRange(self, nums, target):
-        pass
-# Demo
-if __name__ == "__main__":
-    sol = Solution()
-    print(sol.searchRange([5,7,7,8,8,10], 8))   
-    print(sol.searchRange([1,1,2,2,2,3,4], 2))  
-    print(sol.searchRange([1,3,3,3,4,5], 6))   
+        return [self.findBound(nums, target, True), self.findBound(nums, target, False)]
+    def findBound(self, nums, target, isFirst):
+        left, right = 0, len(nums) - 1
+        bound = -1
+        while left <= right:
+            mid = (left + right) // 2
+            if nums[mid] == target:
+                bound = mid
+                if isFirst:
+                    right = mid - 1
+                else:
+                    left = mid + 1
+            elif nums[mid] < target:
+                left = mid + 1
+            else:
+                right = mid - 1
+        return bound
