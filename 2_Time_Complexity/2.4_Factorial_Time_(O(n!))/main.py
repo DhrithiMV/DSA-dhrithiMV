@@ -1,17 +1,8 @@
-# Factorial Time (O(n!))
-# Topic: Time & Space Complexity
-# Type: In-Session
-
-from itertools import permutations
-
-class Solution:
-    def allPermutations(self, s: str) -> list[str]:
-        pass
-
-# Demo
-if __name__ == '__main__':
-    sol = Solution()
-    print(sol.allPermutations("abc"))  # Output: ['abc', 'acb', 'bac', 'bca', 'cab', 'cba']
-    print(sol.allPermutations("ab"))   # Output: ['ab', 'ba']
-    print(sol.allPermutations("a"))    # Output: ['a']
-
+def permute(arr, l, r):
+    if l == r:
+        print(arr)
+    else:
+        for i in range(l, r+1):
+            arr[l], arr[i] = arr[i], arr[l]
+            permute(arr, l+1, r)
+            arr[l], arr[i] = arr[i], arr[l]
