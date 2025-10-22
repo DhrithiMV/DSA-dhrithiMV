@@ -1,35 +1,53 @@
-class Node:
-    def __init__(self, val, prev=None, next=None, child=None):
+class ListNode:
+    def __init__(self, val=0, next=None):
         self.val = val
-        self.prev = prev
         self.next = next
-        self.child = child
 
 class Solution:
-    def flatten(self, head: 'Node') -> 'Node':
-        pass
-if __name__ == "__main__":
-    # Create list: 1 <-> 2 <-> 3, with 2 having child 4 <-> 5
-    n1 = Node(1)
-    n2 = Node(2)
-    n3 = Node(3)
-    n4 = Node(4)
-    n5 = Node(5)
+    def reverseKGroup(self, head, k):
+        dummy = ListNode(0)
+        dummy.next = head
+        prev = dummy
 
-    n1.next = n2
-    n2.prev = n1
-    n2.next = n3
-    n3.prev = n2
+        while True:
+            kth = prev
+            for _ in range(k):
+                kth = kth.next
+                if not kth:
+                    return dummy.next
+            curr = prev.next
+            nxt = kth.next
 
-    n2.child = n4
-    n4.next = n5
-    n5.prev = n4
+            # Reverse group
+            prev_sub, curr_sub = kth.next, curr
+            for _ in range(k):
+                temp = curr_sub.next
+                curr_sub.next = prev_sub
+                prev_sub = curr_sub
+                curr_sub = temp
 
-    sol = Solution()
-    head = sol.flatten(n1)
+            temp = prev.next
+            prev.next = kth
+            prev = temp
+        return dummy.next
 
-    # Print flattened list
-    curr = head
-    while curr:
-        print(curr.val, end=" <-> " if curr.next else "\n")
+def build_list(arr):
+    dummy = ListNode()
+    curr = dummy
+    for x in arr:
+        curr.next = ListNode(x)
         curr = curr.next
+    return dummy.next
+
+def print_list(node):
+    res = []
+    while node:
+        res.append(node.val)
+        node = node.next
+    print(res)
+
+if __name__ == "__main__":
+    sol = Solution()
+    l = build_list([1,2,3,4,5])
+    rev = sol.reverseKGroup(l, 3)
+    print_list(rev)
