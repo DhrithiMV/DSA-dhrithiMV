@@ -28,12 +28,25 @@ Input: nums=[-5,2,-3,1,4], k=2
 Describe your approach here...
 
 ### Pseudocode
-```
-Write your pseudocode here...
-```
+
+1. Compute prefix sum array
+2. Initialize deque to hold indices, maintaining increasing prefix sums
+3. For each index i:
+   - While current prefix - prefix at deque front >= k:
+       update min length and pop from front
+   - While deque back has prefix >= current prefix, pop from back
+   - Append current index to deque
+4. Return -1 if no valid subarray is found, else min length
+
+### Example
+
+Input: nums = [2, -1, 2], k = 3  
+Output: 3
 
 ### Time Complexity
-- 
+
+O(n)
 
 ### Space Complexity
-- 
+
+O(n)
