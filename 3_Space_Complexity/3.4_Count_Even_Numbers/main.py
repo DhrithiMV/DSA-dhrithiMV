@@ -1,12 +1,11 @@
-# Count Even Numbers
-# Topic: Space Complexity
-# Type: Home Challenge
+from typing import List
 
-class Solution:
-    def countEven(self, arr: list[int]) -> int:
-        # Count even numbers
-        pass
-
+def count_even_numbers(arr: List[int]) -> int:
+    count = 0
+    for number in arr:
+        if number % 2 == 0:
+            count += 1
+    return count
 # Demo
 if __name__ == '__main__':
     sol = Solution()
