@@ -11,12 +11,34 @@ class ListNode:
         self.next = next
 
 class Solution:
-    def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
-        # Implement iterative or recursive reversal
-        # Hint: Use three pointers (prev, current, next)
-        pass
+    def reverseList(self, head):
+        prev = None
+        current = head
+        while current:
+            next_node = current.next
+            current.next = prev
+            prev = current
+            current = next_node
+        return prev
 
-# Demo
+# Helper to build and print list for demo
+def build_list(arr):
+    dummy = ListNode()
+    curr = dummy
+    for x in arr:
+        curr.next = ListNode(x)
+        curr = curr.next
+    return dummy.next
+
+def print_list(node):
+    res = []
+    while node:
+        res.append(node.val)
+        node = node.next
+    print(res)
+
 if __name__ == "__main__":
     sol = Solution()
-    # Example: create linked list and test reverse
+    l = build_list([1,2,3,4,5])
+    rev = sol.reverseList(l)
+    print_list(rev)
