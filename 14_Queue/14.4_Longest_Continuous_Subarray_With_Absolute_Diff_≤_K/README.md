@@ -37,12 +37,18 @@ Constraints:
 Describe your approach here...
 
 ### Pseudocode
-```
-Write your pseudocode here...
-```
+
+Initialize empty queue  
+On ping(t):  
+    Append t to queue  
+    Remove leftmost elements < t - 3000  
+    Return queue size
 
 ### Time Complexity
-- 
+
+O(1) amortized per ping
 
 ### Space Complexity
-- 
+
+O(w), where w is the max number of calls in 3000 ms window
+
