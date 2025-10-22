@@ -77,12 +77,20 @@ Up to 100 operations.
 Describe your approach here...
 
 ### Pseudocode
-```
-Write your pseudocode here...
-```
+
+Define result as empty list  
+Define dfs(node):  
+ If node:  
+  Append node.val to result  
+  dfs(node.left)  
+  dfs(node.right)  
+Call dfs(root)  
+Return result
 
 ### Time Complexity
-- 
+
+O(n) (visit each node once)
 
 ### Space Complexity
-- 
+
+O(n) (stack space in worst case)
