@@ -66,12 +66,22 @@ Constraints:
 Describe your approach here...
 
 ### Pseudocode
-```
-Write your pseudocode here...
-```
+function recursiveDigitSum(n):
+  // Base case: If n is a single-digit number, return n.
+  if n < 10:
+    return n
+
+  // Recursive step: Calculate the sum of the digits
+  sum_of_digits = 0
+  while n > 0:
+    sum_of_digits = sum_of_digits + (n modulo 10)
+    n = n integer_division 10
+
+  // Recursively call the function with the new sum
+  return recursiveDigitSum(sum_of_digits)
+
 
 ### Time Complexity
-- 
-
+(O(logn))
 ### Space Complexity
-- 
+(O(logn))
