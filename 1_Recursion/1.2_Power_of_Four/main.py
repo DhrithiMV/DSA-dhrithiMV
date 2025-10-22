@@ -1,16 +1,14 @@
-# Power of Four
-# Topic: Recursion
-# Type: Home Challenge
+class Solution:
+    def recursiveDigitSum(self, n: int) -> int:
+        if n < 10:
+            return n
+        sum_of_digits = 0
+        while n > 0:
+            sum_of_digits += n % 10
+            n //= 10
+        return self.recursiveDigitSum(sum_of_digits)
 
-class Solution:  
-    def isPowerOfFour(self, n: int) -> bool:  
-        # Implement using recursion  
-        return True 
-# Demo 
-if __name__ == '__main__':
-    sol = Solution() 
-    print(sol.isPowerOfFour(1))   
-    print(sol.isPowerOfFour(16))   
-    print(sol.isPowerOfFour(8))   
-    print(sol.isPowerOfFour(0))    
-    print(sol.isPowerOfFour(-4))  
+sol = Solution()
+print(sol.recursiveDigitSum(9875))
+print(sol.recursiveDigitSum(1234))
+print(sol.recursiveDigitSum(5))
