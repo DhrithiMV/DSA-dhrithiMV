@@ -50,12 +50,23 @@ get(2) -> returns -1 (not found)
 Describe your approach here...
 
 ### Pseudocode
-```
-Write your pseudocode here...
-```
+
+Initialize dummy and tail pointers  
+While both lists are not empty:  
+    If l1.val < l2.val:  
+        tail.next = l1  
+        l1 = l1.next  
+    Else:  
+        tail.next = l2  
+        l2 = l2.next  
+    Move tail to tail.next  
+Attach remaining nodes from non-empty list  
+Return dummy.next
 
 ### Time Complexity
-- 
+
+O(n + m) where n, m are the lengths of l1 and l2
 
 ### Space Complexity
-- 
+
+O(1)
