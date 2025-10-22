@@ -2,13 +2,21 @@
 # Topic: Queue
 # Type: Home Challenge
 
-from typing import List
+from collections import deque
 
-def longestSubarray(nums: List[int], limit: int) -> int:
-    # Return length of longest valid subarray
-    pass
+class RecentCounter:
+    def __init__(self):
+        self.q = deque()
+    def ping(self, t: int) -> int:
+        self.q.append(t)
+        while self.q and self.q[0] < t - 3000:
+            self.q.popleft()
+        return len(self.q)
 
-# Demo
 if __name__ == "__main__":
-    print(longestSubarray([8,2,4,7], 4))          
-    print(longestSubarray([10,1,2,4,7,2], 5))     
+    rc = RecentCounter()
+    print(rc.ping(1))      # 1
+    print(rc.ping(100))    # 2
+    print(rc.ping(3001))   # 3
+    print(rc.ping(3002))   # 3
+
