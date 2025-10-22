@@ -31,12 +31,23 @@ Input: queue = [^9][^5][^2][^1], k = 4
 Describe your approach here...
 
 ### Pseudocode
-```
-Write your pseudocode here...
-```
+
+If k is invalid, return original queue  
+Push first k elements of queue into stack  
+Pop all elements from stack and enqueue back into queue  
+Move remaining (n - k) elements of queue from front to back  
+Return updated queue
+
+### Example
+
+Input: q = [1, 2, 3, 4, 5], k = 3  
+Output: [3, 2, 1, 4, 5]
 
 ### Time Complexity
-- 
+
+O(n)
 
 ### Space Complexity
-- 
+
+O(k)
+
