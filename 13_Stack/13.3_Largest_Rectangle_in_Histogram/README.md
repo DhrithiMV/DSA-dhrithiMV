@@ -45,12 +45,26 @@ Given an array of integers `heights` representing the histogram's bar heights (w
 Describe your approach here...
 
 ### Pseudocode
-```
-Write your pseudocode here...
-```
+
+push(x):
+    Add x to main stack
+    If min_stack is empty or x <= min_stack top, push x to min_stack
+
+pop():
+    Remove top from main stack
+    If popped == min_stack top, pop min_stack
+
+top():
+    Return top of main stack
+
+getMin():
+    Return top of min_stack
 
 ### Time Complexity
-- 
+
+O(1) for all operations
 
 ### Space Complexity
-- 
+
+O(n)
+
